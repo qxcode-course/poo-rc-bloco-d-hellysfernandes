@@ -1,0 +1,34 @@
+{
+    "patches": [
+        {
+            "label": "2025-11-25_14-30-32",
+            "content": "@@ -107,13 +107,8 @@\n one%5D\n- = %5B%5D\n %0A   \n@@ -139,57 +139,8 @@\n %22%22%0A%0A\n-    def __str__(self) -%3E str:%0A        return %22%22%0A%0A\n clas\n@@ -235,460 +235,12 @@\n  %22%22%0A\n-%0A    def getId(self) -%3E str:%0A        return self.__id%0A    %0A    def getNumber(self) -%3E str:%0A        return self.__nunber%0A    %0Adef main():%0A%0A    contato = Contact()%0A%0A    while (True):%0A%0A        line: str = input()%0A        print(%22$ %22 + line)%0A        args: list%5Bstr%5D = line.split(%22 %22)%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        elif args%5B0%5D == %22show%22:%0A            print(contato)%0A        else:%0A            print(%22Fail: comando nao encontrado%22)%0Amain()\n+        \n",
+            "lines": "11"
+        },
+        {
+            "label": "2025-11-25_14-46-22",
+            "content": "@@ -144,78 +144,8 @@\n %22%22%0A%0A\n-    def setName(self, name: str) -%3E None:%0A        name = self.__name%0A%0A\n     \n@@ -675,106 +675,8 @@\n to)%0A\n-        elif args%5B0%5D == %22init%22:%0A            name: str = input()%0A            contato.setName(name)%0A\n     \n",
+            "lines": "37"
+        },
+        {
+            "label": "2025-11-25_14-53-04",
+            "content": "@@ -581,16 +581,17 @@\n print(%22$\n+ \n %22 + line\n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-11-25_14-53-23",
+            "content": "@@ -194,22 +194,22 @@\n     \n-self.__\n name = \n+self.__\n name\n@@ -259,28 +259,9 @@\n urn \n-f%22- %7Bself.__name%7D %5B%5D\n+%22\n %22%0A%0Ac\n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-11-25_14-55-39",
+            "content": "@@ -819,15 +819,15 @@\n r = \n-args%5B1%5D\n+input()\n %0A   \n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-11-25_15-00-55",
+            "content": "class Contact:\n    def __init__(self):\n        self.__favorited: bool = False\n        self.__fones: list[Fone] = []\n        self.__name: str = \"\"\n\n    def setName(self, name: str) -> None:\n        self.__name = name\n\n    def __str__(self) -> str:\n        return f\"- {self.__name} []\"\n\nclass Fone:\n    def __init__(self):\n        self.__id: str = \"\"\n        self.__nunber: str = \"\"\n\n    def getId(self) -> str:\n        return self.__id\n    \n    def getNumber(self) -> str:\n        return self.__nunber\n    \ndef main():\n\n    contato = Contact()\n\n    while (True):\n\n        line: str = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(contato)\n        elif args[0] == \"init\":\n            name: str = args[1]\n            contato.setName(name)\n        else:\n            print(\"Fail: comando nao encontrado\")\nmain()",
+            "lines": "43"
+        }
+    ]
+}
