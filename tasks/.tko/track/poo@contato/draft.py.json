@@ -77,8 +77,73 @@
         },
         {
             "label": "2025-11-26_14-37-27",
-            "content": "class Contact:\n    def __init__(self):\n        self.__favorited: bool = False\n        self.__fones: list[Fone] = []\n        self.__name: str = \"\"\n\n    def addFone(self, id: str, number: str) -> None:\n        self.__fones.append(id)\n        self.__fones.append(number)\n\n    def getFone(self):\n        return self.__fones\n    \n    def getName(self) -> str:\n        return self.__name\n\n    def setName(self, name: str) -> None:\n        self.__name = name\n\n    def __str__(self) -> str:\n        fones = \": \".join([str(x) if x else \"-----\" for x in self.__fones])\n        return f\"- {self.__name} [{fones}]\"\n\nclass Fone:\n    def __init__(self):\n        self.__id: str = \"\"\n        self.__number: str = \"\"\n\n    def getId(self) -> str:\n        return self.__id\n    \n    def getNumber(self) -> str:\n        return self.__number\n    \n    def Fone(self, id: str, number: str) -> None:\n        self.__id = id\n        self.__number = number\n\ndef main():\n\n    contato = Contact()\n    telefone = Fone()\n\n    while (True):\n\n        line: str = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(contato)\n        elif args[0] == \"init\":\n            name: str = args[1]\n            contato.setName(name)\n        elif args[0] == \"add\":\n            id: str = args[1]\n            number: str = args[2]\n            telefone.Fone(id,number)\n            contato.addFone(id,number)\n        else:\n            print(\"Fail: comando nao encontrado\")\nmain()",
+            "content": "@@ -166,22 +166,28 @@\n lf, \n-telefone: Fone\n+id: str, number: str\n ) -%3E\n@@ -221,24 +221,54 @@\n .append(\n-telefone\n+id)%0A        self.__fones.append(number\n )%0A%0A    d\n@@ -927,86 +927,8 @@\n er%0A%0A\n-    def __str__(self) -%3E str:%0A        return f%22%7Bself.__id%7D: %7Bself.__number%7D%22%0A%0A\n def \n",
             "lines": "64"
+        },
+        {
+            "label": "2025-11-26_15-02-49",
+            "content": "@@ -1,36 +1,4 @@\n-from tkinter.font import Font%0A%0A%0A\n clas\n@@ -175,17 +175,17 @@\n one: Fon\n-t\n+e\n ) -%3E Non\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-26_15-13-21",
+            "content": "@@ -1,12 +1,44 @@\n+from tkinter.font import Font%0A%0A%0A\n class Contac\n@@ -207,17 +207,17 @@\n one: Fon\n-e\n+t\n ) -%3E Non\n",
+            "lines": "69"
+        },
+        {
+            "label": "2025-11-26_15-17-16",
+            "content": "@@ -1,36 +1,4 @@\n-from tkinter.font import Font%0A%0A%0A\n clas\n@@ -175,17 +175,17 @@\n one: Fon\n-t\n+e\n ) -%3E Non\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-26_15-23-12",
+            "content": "@@ -1,12 +1,44 @@\n+from tkinter.font import Font%0A%0A%0A\n class Contac\n@@ -207,17 +207,17 @@\n one: Fon\n-e\n+t\n ) -%3E Non\n@@ -1537,24 +1537,25 @@\n addFone(\n-telefone\n+id,number\n )%0A      \n",
+            "lines": "69"
+        },
+        {
+            "label": "2025-11-26_15-25-00",
+            "content": "@@ -166,16 +166,26 @@\n lf, tele\n+fone: Fone\n ) -%3E Non\n@@ -219,16 +219,20 @@\n end(tele\n+fone\n )%0A%0A    d\n@@ -432,32 +432,108 @@\n _(self) -%3E str:%0A\n+        fones = %22: %22.join(%5Bstr(x) if x else %22-----%22 for x in self.__fones%5D)%0A\n         return f\n@@ -551,23 +551,16 @@\n name%7D %5B%7B\n-self.__\n fones%7D%5D%22\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-26_15-29-43",
+            "content": "@@ -459,16 +459,17 @@\n __name%7D \n+%5B\n %7Bself.__\n@@ -474,16 +474,17 @@\n __fones%7D\n+%5D\n %22%0A%0Aclass\n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-11-26_15-30-09",
+            "content": "@@ -430,66 +430,8 @@\n tr:%0A\n-        fones = %22, %22.join(%5Bstr(x) for x in self.__fones%5D)%0A\n     \n@@ -460,16 +460,23 @@\n _name%7D %7B\n+self.__\n fones%7D%22%0A\n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-11-26_15-31-26",
+            "content": "@@ -521,17 +521,15 @@\n me%7D \n-%5B\n %7Bfones%7D\n-%5D\n %22%0A%0Ac\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-26_15-31-49",
+            "content": "@@ -914,16 +914,17 @@\n f.__id%7D:\n+ \n %7Bself.__\n@@ -1482,17 +1482,16 @@\n elefone)\n- \n %0A       \n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-27_13-58-32",
+            "content": "@@ -205,19 +205,19 @@\n .append(\n-Fon\n+tel\n e)%0A%0A    \n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-27_14-01-00",
+            "content": "@@ -170,115 +170,50 @@\n tele\n-, increment: int = 1) -%3E None:%0A        increment = increment + 1%0A        self.__fones.insert(increment, tel\n+) -%3E None:%0A        self.__fones.append(Fon\n e)%0A%0A\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-11-27_14-10-00",
+            "content": "@@ -170,47 +170,112 @@\n tele\n-) -%3E None:%0A        self.__fones.append(\n+, increment: int = 1) -%3E None:%0A        increment = increment + 1%0A        self.__fones.insert(increment, \n tele\n",
+            "lines": "67"
+        },
+        {
+            "label": "2025-11-27_14-41-00",
+            "content": "class Contact:\n    def __init__(self):\n        self.__favorited: bool = False\n        self.__fones: list[Fone] = []\n        self.__name: str = \"\"\n\n    def addFone(self, tele) -> None:\n        self.__fones.append(tele)\n\n    def getFone(self):\n        return self.__fones\n    \n    def getName(self) -> str:\n        return self.__name\n\n    def setName(self, name: str) -> None:\n        self.__name = name\n\n    def __str__(self) -> str:\n        fones = \", \".join([str(x) for x in self.__fones])\n        return f\"- {self.__name} [{fones}]\"\n\nclass Fone:\n    def __init__(self):\n        self.__id: str = \"\"\n        self.__number: str = \"\"\n\n    def getId(self) -> str:\n        return self.__id\n    \n    def getNumber(self) -> str:\n        return self.__number\n    \n    def Fone(self, id: str, number: str) -> None:\n        self.__id = id\n        self.__number = number\n\n    def __str__(self) -> str:\n        return f\"{self.__id}:{self.__number}\"\n\ndef main():\n\n    contato = Contact()\n    telefone = Fone()\n\n    while (True):\n\n        line: str = input()\n        print(\"$\" + line)\n        args: list[str] = line.split(\" \")\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(contato)\n        elif args[0] == \"init\":\n            name: str = args[1]\n            contato.setName(name)\n        elif args[0] == \"add\":\n            id: str = args[1]\n            number: str = args[2]\n            telefone.Fone(id,number)\n            contato.addFone(telefone) \n        else:\n            print(\"Fail: comando nao encontrado\")\nmain()",
+            "lines": "66"
         }
     ]
 }

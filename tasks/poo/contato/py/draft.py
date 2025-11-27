@@ -4,8 +4,8 @@ class Contact:
         self.__fones: list[Fone] = []
         self.__name: str = ""
 
-    def addFone(self, telefone: Fone) -> None:
-        self.__fones.append()
+    def addFone(self, tele) -> None:
+        self.__fones.append(tele)
 
     def getFone(self):
         return self.__fones
@@ -17,7 +17,7 @@ class Contact:
         self.__name = name
 
     def __str__(self) -> str:
-        fones = ": ".join([str(x) if x else "-----" for x in self.__fones])
+        fones = ", ".join([str(x) for x in self.__fones])
         return f"- {self.__name} [{fones}]"
 
 class Fone:
@@ -36,7 +36,7 @@ class Fone:
         self.__number = number
 
     def __str__(self) -> str:
-        return f"{self.__id}: {self.__number}"
+        return f"{self.__id}:{self.__number}"
 
 def main():
 
@@ -60,7 +60,7 @@ def main():
             id: str = args[1]
             number: str = args[2]
             telefone.Fone(id,number)
-            contato.addFone(id,number)
+            contato.addFone(telefone) 
         else:
             print("Fail: comando nao encontrado")
 main()
