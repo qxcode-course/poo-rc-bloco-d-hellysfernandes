@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-12-03_19-30-47",
+            "content": "class Agenda:\n    def __init__(self):\n        self.__contacts: list[Contact] = []\n\nclass Contact: \n    def __init__(self):\n        self.__favorited: bool = False\n        self.__fone: list[Fone] = []\n        self.__name: str = \"\"\n\n\nclass Fone:\n    def __init__(self):\n        self.__id: str = \"\"\n        self.__number: str = \"\"\n\n    def getId(self) -> str:\n        return self.__id\n    \n    def getName(self) -> str:\n        return self.__number\n    \n    def __str__(self) -> str:\n        return f\"{self.__id} {self.__number}\"",
+            "lines": "24"
+        }
+    ]
+}
